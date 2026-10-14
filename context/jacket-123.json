@@ -1,0 +1,23 @@
+{
+  "id": "jacket-123",
+  "name": "Alpine Shield Jacket",
+  "price_usd": 129,
+  "waterproof_rating": "10,000 mm",
+  "temperature_range": "-5°C to 10°C with suitable layers",
+  "features": [
+    "water-resistant shell",
+    "recycled insulation",
+    "adjustable hood",
+    "sealed seams",
+    "breathable lining",
+    "two zippered hand pockets"
+  ],
+  "care": {
+    "wash_temperature": "30°C on a gentle cycle",
+    "instructions": "Close all zippers before washing. Do not use fabric softener. Follow the garment care label before washing or tumble drying."
+  },
+  "notes": [
+    "Fictional demonstration data only.",
+    "Specifications are illustrative and should not be used for an actual purchase."
+  ]
+}
