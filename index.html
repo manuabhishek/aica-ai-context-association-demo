@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AICA Demo — Context on Demand</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="page-shell">
+    <header class="site-header">
+      <a class="brand" href="#" aria-label="AICA demo home"><span class="brand-mark">A</span><span>AICA <small>CONTEXT-ON-DEMAND DEMO</small></span></a>
+      <span class="pill">Proof of concept</span>
+    </header>
+
+    <section class="intro">
+      <p class="eyebrow">AI CONTEXT ASSOCIATION</p>
+      <h1>What if a web element could explain itself to AI?</h1>
+      <p class="lede">This demo shows a simple idea: a page element points to a separate context file, which an AI-enabled client can fetch only when more information is needed.</p>
+    </section>
+
+    <section class="product-card" data-aica-context="context/jacket-123.json" data-aica-id="product-jacket-123">
+      <div class="product-visual" aria-label="Stylized illustration of a winter jacket" role="img">
+        <div class="snow snow-one"></div><div class="snow snow-two"></div><div class="snow snow-three"></div>
+        <svg class="jacket" viewBox="0 0 260 300" role="presentation" aria-hidden="true">
+          <path d="M90 36 L116 20 Q130 31 144 20 L170 36 L205 61 L240 138 L204 156 L183 113 L183 264 Q130 284 77 264 L77 113 L56 156 L20 138 L55 61 Z" fill="#f4f7fb" stroke="#b8c9d8" stroke-width="4" stroke-linejoin="round"/>
+          <path d="M110 25 Q130 52 150 25 L160 42 Q130 72 100 42 Z" fill="#d2dfeb" stroke="#b8c9d8" stroke-width="3"/>
+          <path d="M130 48 V265" stroke="#8ea7bc" stroke-width="4"/><path d="M91 92 H119 M91 104 H119 M141 92 H169 M141 104 H169" stroke="#d0dce7" stroke-width="4" stroke-linecap="round"/>
+          <path d="M86 161 L118 173 M174 161 L142 173" stroke="#b8c9d8" stroke-width="3"/>
+          <rect x="91" y="180" width="27" height="42" rx="4" fill="#dfe8f0" stroke="#b8c9d8" stroke-width="2"/><rect x="142" y="180" width="27" height="42" rx="4" fill="#dfe8f0" stroke="#b8c9d8" stroke-width="2"/>
+        </svg>
+        <span class="visual-label">NORTH / OUTDOOR</span>
+      </div>
+      <div class="product-details">
+        <p class="eyebrow">WINTER COLLECTION</p>
+        <h2>Alpine Shield Jacket</h2>
+        <p class="product-subtitle">Everyday warmth, built for cold-weather walks.</p>
+        <div class="price-row"><span class="price">$129.00</span><span class="stock"><i></i> In stock</span></div>
+        <div class="features"><span>Water-resistant shell</span><span>Recycled insulation</span><span>Adjustable hood</span></div>
+        <p class="context-note"><span class="context-dot"></span> This product element references a separate AICA context document.</p>
+        <button id="ask-ai" type="button">Ask the demo AI <span aria-hidden="true">↗</span></button>
+      </div>
+    </section>
+
+    <section class="assistant-panel" aria-labelledby="assistant-title">
+      <div class="assistant-heading"><div class="assistant-icon">✦</div><div><p class="eyebrow">CONTEXT LOOKUP</p><h2 id="assistant-title">Try asking about this product</h2></div></div>
+      <div class="suggestions" aria-label="Example questions">
+        <button class="suggestion" type="button" data-question="Is this jacket waterproof?">Is it waterproof?</button>
+        <button class="suggestion" type="button" data-question="What materials are used?">What materials are used?</button>
+        <button class="suggestion" type="button" data-question="How should I care for it?">How do I care for it?</button>
+      </div>
+      <form id="question-form" class="question-form">
+        <label class="visually-hidden" for="question">Ask a question about the jacket</label>
+        <input id="question" name="question" type="text" placeholder="Ask a question about the jacket…" autocomplete="off">
+        <button type="submit" aria-label="Submit question">Ask</button>
+      </form>
+      <div id="answer" class="answer" role="status" aria-live="polite"><p class="muted">Choose a suggested question or type your own. The demo will fetch the linked JSON context when you ask.</p></div>
+      <details class="technical-details"><summary>What happened behind the scenes?</summary><ol><li>The product element exposes a context URI through <code>data-aica-context</code>.</li><li>The demo fetches the referenced JSON only after you ask a question.</li><li>A small local rule-based function uses that context to produce a response.</li></ol></details>
+    </section>
+
+    <footer><span>AICA — AI Context Association</span><span>Experimental concept · Not a standard</span></footer>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
